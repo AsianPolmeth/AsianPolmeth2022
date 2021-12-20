@@ -1,0 +1,19 @@
+name: "AsianPolmeth2022"
+navbar:
+  title: "Asian PolMeth 2022"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Day 1"
+      href: day_one.html      
+    - text: "Day 2"
+      href: day_two.html      
+  right: 
+    - icon: fa-envelope fa-lg
+      href: mailto:<email@emai.com>
+output:
+  html_document:
+    theme: flatly
+
+
+
