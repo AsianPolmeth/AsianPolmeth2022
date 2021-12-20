@@ -7,7 +7,13 @@ navbar:
     - text: "Day 1"
       href: day_one.html      
     - text: "Day 2"
-      href: day_two.html      
+      href: day_two.html
+    - text: "Past Conferences"
+      menu:
+        - text: "2021"
+          href: https://sites.google.com/view/asian-polmeth-2021/home
+        - text: "Pre 2020"
+          href: https://polmeth.org/asia
   right: 
     - icon: fa-envelope fa-lg
       href: mailto:<email@emai.com>
