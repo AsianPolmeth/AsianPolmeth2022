@@ -1,3 +1,59 @@
 ---
 title: "Asian PolMeth 2022"
 ---
+
+
+Asian PolMeth 2022 is a virtual conference taking place between January 6 (Thurs) and January 7 (Fri), 2022. Schedule is in Korea Standard Time (UTC + 9).
+
+
+## Program
+
+```{r include=FALSE}
+require(dplyr)
+require(knitr)
+require(kableExtra)
+```
+
+```{r echo=FALSE, include=TRUE}
+section_title <- c(
+  "Session 1: Welcome Address",
+  "Session 2: Causal Inference and Big Data",
+  "Section 3",
+  "Section 4",
+  "Section 5: Poster Session",
+  "Section 6",
+  "Section 7",
+  "Section 8"
+)
+  
+section_time <- c(
+  "9:00–10:30 am",
+  "10:40-12:10 pm",
+  "1:00–2:30 pm",
+  "2:45-4:15 pm"
+)
+
+section_time_day2 <- c(
+  "9:00–10:30 am",
+  "10:40-12:10 pm",
+  "1:10–2:40 pm",
+  "2:50-4:20 pm"
+  
+)
+
+day <- c(
+  rep("Day 1 (January 6)", length(section_time)),
+  rep("Day 2 (January 7)", length(section_time_day2))
+)
+
+tibble(
+  Time = c(section_time, section_time_day2),
+  Event = section_title
+) %>% 
+    kable(col.names = NULL) %>% 
+    kable_styling(full_width = FALSE, font_size = 20, 
+                      bootstrap_options = c("striped")
+                  ) %>% 
+  pack_rows(
+      index = table(forcats::fct_inorder(day)))
+```
