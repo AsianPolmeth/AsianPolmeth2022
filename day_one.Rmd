@@ -7,18 +7,60 @@ title: "Program Day 1"
 require(knitr)
 require(kableExtra)
 require(dplyr)
+# rmarkdown::render_site()
 ```
 
 ```{r echo=FALSE, include=TRUE}
-date_time <- c(
-  "Session 1: Welcome Address (9:00–10:30 am)",
-  "Break (10:30-10:40 am)",
-  "Session 2: Causal Inference and Big Data (10:40-12:10 am)",
+section_title <- c(
+  "Session 1: Welcome Address",
+  "Break",
+  "Session 2: Causal Inference and Big Data",
+  "Section 3: foo",
+  "Section 4: foo"
+)
+  
+section_time <- c(
+  "9:00–10:30 am",
+  "10:30-10:40 am",
+  "10:40-12:10 am",
   "12:10–1:00 pm",
   "1:00 – 2:30 p.m"
 )
 
-events <- c(
+section_zoom <- c(
+  "https://zoom.us/",
+  "",
+  "https://zoom.us/",
+  "https://zoom.us/",
+  "https://zoom.us/"
+)
+
+tibble(
+  title = section_title,
+  time = section_time,
+  zoom = section_zoom
+) %>%
+  mutate(
+    section_header = paste0(
+      section_title, " ",
+      "(", section_time, ")",
+      if_else(section_zoom != "", 
+              paste0("  ", "[Zoom](", section_zoom, ")"),
+              ""
+      )
+    )
+  ) %>%
+  pull(section_header) -> section_header
+
+# section_header <- c(
+#   "Session 1: Welcome Address (9:00–10:30 am)",
+#   "Break (10:30-10:40 am)",
+#   "Session 2: Causal Inference and Big Data (10:40-12:10 am)",
+#   "12:10–1:00 pm",
+#   "1:00 – 2:30 p.m"
+# )
+
+event_name <- c(
   "Welcome Address by SPM President Betsy Sinclair",
   "Round Table: _Past, Present, and Future of Political Methodology._\n
    **Panelist**: Kosuke Imai, Molly Roberts, Yiqing Xu, Betsy Sinclair",
@@ -28,8 +70,23 @@ events <- c(
   "Discussant: Xun Pang (Tsinghua University)"
 )
 
+paper_link <- c(
+  "",
+  "",
+  "",
+  "https://arxiv.org/",
+  "https://arxiv.org/",
+  ""
+)
+
+events <- if_else(
+  paper != "",
+  paste0(event_name, " ", "([paper](", paper_link, "))"),
+  event_name
+)
+
 schedule_tab <- tibble(
-  Time = c(rep(date_time[1], 2), date_time[2], rep(date_time[3], 3)), 
+  Time = c(rep(section_header[1], 2), section_header[2], rep(section_header[3], 3)), 
   Time_fill = rep("", length(events)),
   Time_start = c(
     "9:00am-", "9:45am-",
@@ -43,12 +100,12 @@ schedule_tab %>%
   select(Time_start, Events) %>% 
   kable(col.names = NULL) %>% 
     kable_styling(full_width = TRUE, font_size = 20) %>% 
-    column_spec(1, bold = FALSE, border_right = TRUE) %>% 
+    column_spec(1, bold = FALSE, border_right = FALSE) %>% 
     column_spec(2, background = c(rep("#95a5a6", 2), "white", rep("#3c4c5d", 3)),
                   color = c(rep("white", 2), "black", rep("white",3))) %>% 
-    pack_rows(index = table(forcats::fct_inorder(schedule_tab$Time)))
-
-
-
+    pack_rows(
+      index = table(forcats::fct_inorder(schedule_tab$Time)),
+      label_row_css = "border-bottom: 5.5px solid;",
+    )
 ```
 
