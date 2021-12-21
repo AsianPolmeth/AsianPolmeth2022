@@ -63,7 +63,7 @@ tibble(
 event_name <- c(
   "Welcome Address by SPM President Betsy Sinclair",
   "Round Table: _Past, Present, and Future of Political Methodology._\n
-   **Panelist**: Kosuke Imai, Molly Roberts, Yiqing Xu, Betsy Sinclair",
+   **Panelist**: Molly Roberts, Yiqing Xu, Betsy Sinclair",
   "Break",
   "Chad Hazlett and Yiqing Xu. _Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data._",
   "Daniel J. Hopkins, Yphtach Lelkes, Samuel Wolken. _Which News Goes Viral? Measuring Identity Threats and Engagement with News Media Posts on Twitter and Facebook._",
@@ -80,7 +80,7 @@ paper_link <- c(
 )
 
 events <- if_else(
-  paper != "",
+  paper_link != "",
   paste0(event_name, " ", "([paper](", paper_link, "))"),
   event_name
 )
@@ -100,12 +100,12 @@ schedule_tab %>%
   select(Time_start, Events) %>% 
   kable(col.names = NULL) %>% 
     kable_styling(full_width = TRUE, font_size = 20) %>% 
-    column_spec(1, bold = FALSE, border_right = FALSE) %>% 
+    column_spec(1, bold = FALSE) %>% 
     column_spec(2, background = c(rep("#95a5a6", 2), "white", rep("#3c4c5d", 3)),
                   color = c(rep("white", 2), "black", rep("white",3))) %>% 
     pack_rows(
       index = table(forcats::fct_inorder(schedule_tab$Time)),
-      label_row_css = "border-bottom: 5.5px solid;",
+      label_row_css = "border-bottom: 4px solid;",
     )
 ```
 
