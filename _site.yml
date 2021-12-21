@@ -1,4 +1,5 @@
 name: "AsianPolmeth2022"
+output_dir: "docs"
 navbar:
   title: "Asian PolMeth 2022"
   left:
