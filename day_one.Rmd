@@ -2,6 +2,7 @@
 title: "Program Day 1"
 ---
 
+### January 6 (Thursday)
 
 ```{r include=FALSE}
 require(knitr)
@@ -15,24 +16,24 @@ section_title <- c(
   "Session 1: Welcome Address",
   "Break",
   "Session 2: Causal Inference and Big Data",
-  "Section 3: foo",
-  "Section 4: foo"
+  "Break",
+  "Section 3",
+  "Break",
+  "Section 4"
 )
   
 section_time <- c(
   "9:00–10:30 am",
   "10:30-10:40 am",
-  "10:40-12:10 am",
+  "10:40-12:10 pm",
   "12:10–1:00 pm",
-  "1:00 – 2:30 p.m"
+  "1:00–2:30 pm",
+  "2:30-2:45 pm",
+  "2:45-4:15 pm"
 )
 
 section_zoom <- c(
-  "https://zoom.us/",
-  "",
-  "https://zoom.us/",
-  "https://zoom.us/",
-  "https://zoom.us/"
+  rep("https://zoom.us/", length(section_time))
 )
 
 tibble(
@@ -52,13 +53,6 @@ tibble(
   ) %>%
   pull(section_header) -> section_header
 
-# section_header <- c(
-#   "Session 1: Welcome Address (9:00–10:30 am)",
-#   "Break (10:30-10:40 am)",
-#   "Session 2: Causal Inference and Big Data (10:40-12:10 am)",
-#   "12:10–1:00 pm",
-#   "1:00 – 2:30 p.m"
-# )
 
 event_name <- c(
   "Welcome Address by SPM President Betsy Sinclair",
@@ -67,7 +61,15 @@ event_name <- c(
   "Break",
   "Chad Hazlett and Yiqing Xu. _Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data._",
   "Daniel J. Hopkins, Yphtach Lelkes, Samuel Wolken. _Which News Goes Viral? Measuring Identity Threats and Engagement with News Media Posts on Twitter and Facebook._",
-  "Discussant: Xun Pang (Tsinghua University)"
+  "Discussant: Xun Pang (Tsinghua University)",
+  "Lunch Break", 
+  "Ye Wang, Yiqing Xu, Junlong Aaron Zhou. _Regression Discontinuity Designs for High-frequency Time-Series Cross-Sectional Data._",
+  "Licheng Liu and Xun Pang. _Causal Inferences with Time-Series Cross-Sectional Data under Spatial Interference and Interdependence: A Model-based Approach._",
+  "Discussant: Joon Seok Yang (Sungkyunkwan University)",
+  "Break",
+  "Han Zhang and Haoran Liang.	_Joint Text-and-Image Clustering for Social Science Research._",
+  "Fang-Yi Chiou and Max Goplerud. _Measuring and Theorizing the Legislative Records of Members of the United States Congress, 1873-2010._",
+  "Discussant: Yunkyu Sohn (Seoul National University)"
 )
 
 paper_link <- c(
@@ -76,6 +78,14 @@ paper_link <- c(
   "",
   "https://arxiv.org/",
   "https://arxiv.org/",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
   ""
 )
 
@@ -86,12 +96,23 @@ events <- if_else(
 )
 
 schedule_tab <- tibble(
-  Time = c(rep(section_header[1], 2), section_header[2], rep(section_header[3], 3)), 
+  Time = c(
+    rep(section_header[1], 2), 
+    section_header[2], 
+    rep(section_header[3], 3), 
+    section_header[4],
+    rep(section_header[5], 3), 
+    section_header[6], 
+    rep(section_header[7],3)),
   Time_fill = rep("", length(events)),
   Time_start = c(
     "9:00am-", "9:45am-",
     "", 
-    "10:40am-", "11:10am-", "11:40am-"
+    "10:40am-", "11:10am-", "11:40am-",
+    "",
+    "1:00pm-", "1:30pm-", "2:00pm-",
+    "",
+    "2:45pm-", "3:15pm-", "3:45pm-"
   ),
   Events = events
 ) 
@@ -101,8 +122,17 @@ schedule_tab %>%
   kable(col.names = NULL) %>% 
     kable_styling(full_width = TRUE, font_size = 20) %>% 
     column_spec(1, bold = FALSE) %>% 
-    column_spec(2, background = c(rep("#95a5a6", 2), "white", rep("#3c4c5d", 3)),
-                  color = c(rep("white", 2), "black", rep("white",3))) %>% 
+    column_spec(2, 
+                background = c(
+                  rep("#95a5a6", 2), 
+                  "#BCC5C5", 
+                  rep("#3c4c5d", 3),
+                  "#BCC5C5", 
+                  rep("#3c4c5d", 3),
+                  "#BCC5C5", 
+                  rep("#3c4c5d", 3)
+                  ),
+                color = "white") %>% 
     pack_rows(
       index = table(forcats::fct_inorder(schedule_tab$Time)),
       label_row_css = "border-bottom: 4px solid;",
