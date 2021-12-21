@@ -18,12 +18,13 @@ require(kableExtra)
 section_title <- c(
   "Session 1: Welcome Address",
   "Session 2: Causal Inference and Big Data",
-  "Section 3",
-  "Section 4",
+  "Section 3: Causal Inference in Time Series Cross Sectional Data",
+  "Section 4: Text Analysis",
   "Section 5: Poster Session",
-  "Section 6",
-  "Section 7",
-  "Section 8"
+  "Section 6: Deep learning and Principal Strata Effect",
+  "Section 7: Big Data and Causal Ordering",
+  "Section 8: Analysis of Treaty Text and Preference",
+  "Concluding Remarks"
 )
   
 section_time <- c(
@@ -37,8 +38,8 @@ section_time_day2 <- c(
   "9:00–10:30 am",
   "10:40-12:10 pm",
   "1:10–2:40 pm",
-  "2:50-4:20 pm"
-  
+  "2:50-4:20 pm",
+  "4:20 pm"
 )
 
 day <- c(
