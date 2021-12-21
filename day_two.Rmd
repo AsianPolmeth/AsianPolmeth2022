@@ -1,3 +1,134 @@
 ---
 title: "Program Day 2"
 ---
+
+### January 7 (Wednesday)
+
+```{r, echo=FALSE, include=TRUE}
+# Poster Session
+
+session_title <- c(
+  "Session 5: Poster Session"
+)
+
+session_time <- c(
+  "9:00–10:30 am"
+)
+
+session_zoom <- c(
+  rep("", length(session_time))
+)
+
+section_header <- fun_section_header(session_title, settion_time, session_zoom)
+
+
+room <- c(
+  "Room 1 **[Zoom](https://zoom.us/)**",
+  "Room 2 **[Zoom](https://zoom.us/)**"
+)
+
+# moderator <- c(
+#   "Moderator: Yuki Shiraito (University of Michigan, Ann Arbor)",
+#   "Moderator: Ben Goldsmith (Australian National University)"
+# )
+
+moderator <- c(
+  "Moderator: Yuki Shiraito",
+  "Moderator: Ben Goldsmith"
+)
+
+authors <- c(
+  ## Room 1
+  "Seo-young Silvia Kim, Bernard L. Fraga, Bradley Spahn, Alan N. Yan.",
+  "Michio Umeda.",
+  "Matthew P. Robertson.",
+  "Lucie Lu",
+  ## Room 2
+  "Jiongyi Cao Kosuke Imai Michael Lingzhi Li.",
+  "Huaitian Lu, Xun Pang.",
+  "Hsu Yumin Wang.",
+  "Gechun Lin."
+)
+
+title <- c(
+  # Room 1
+  "When Do Voter Files Accurately Measure Turnout? How Transitory Voter File Snapshots Impact Research and Representation.",
+  "Aggregating qualitative district-level campaign assessments to forecast the 2021 LH general election results in Japan.",
+  "Bringing Big Data to Chinese Politics: Learning From the People's Daily Corpus.",
+  "We Hear You: How do State-run Media Pay Attention to Online Public Opinion?",
+  # Room 2
+  "Experimental Evaluation of Dynamic Individualized Treatment Rules.",
+  "A Causal-Predictive Machine Learning Method with Temporal Convolutional Networks for Panel Data.",
+  "A Latent Measure of Mass Threats in Nondemocracies.",
+  "When Counting Fails to Discover: Examining Short Text Similarity with A Meaning-Based Approach."
+)
+
+poster_link <- c(
+  # Room 1
+  "",
+  "",
+  "",
+  "",
+  # Room 2
+  "",
+  "",
+  "",
+  ""
+)
+
+event_name <- paste0(
+  authors, " _", title, "_"
+)
+
+events <- if_else(
+  poster_link != "",
+  paste0(event_name, " ", "([poster](", poster_link, "))"),
+  event_name
+)
+
+
+schedule_tab <- tibble::tibble(
+  order = rep(1:4, 2),
+  Time = rep(section_header, 8),
+  Room = c(rep("Room1", 4), rep("Room2", 4)),
+  Events = events
+)
+
+schedule_tab %>%
+  select(order, Room, Events) %>% 
+  tidyr::pivot_wider(id_cols = order, values_from = Events, names_from = Room) %>% 
+  mutate(
+    ` ` = rep("", 4)
+  ) %>%
+  select(-order) %>% 
+  relocate(` `) %>%
+  add_row(
+    ` ` = " ", 
+    Room1 = room[1],
+    Room2 = room[2],
+    .before = 1) %>%
+  add_row(
+    ` ` = " ", 
+    Room1 = moderator[1],
+    Room2 = moderator[2],
+    .after = 1) %>%
+  kable(col.names = NULL) %>% 
+  kable_styling(full_width = TRUE, font_size = 20) %>%
+  row_spec(
+    1:2, align = "center"
+  ) %>%
+  #
+  #
+  pack_rows(
+      index = schedule_tab$Time[1],
+      label_row_css = "border-bottom: 3.5px solid;",
+    ) %>% 
+  column_spec(2, width = "24em", background = "#fafafa") %>%
+  column_spec(3, width = "24em", background = "#ececec")
+```
+
+
+
+```{r}
+
+```
