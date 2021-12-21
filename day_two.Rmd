@@ -1,3 +1,289 @@
 ---
 title: "Program Day 2"
 ---
+
+### January 7 (Wednesday)
+
+```{r, echo=FALSE, include=TRUE}
+# Poster Session
+
+session_title <- c(
+  "Session 5: Poster Session"
+)
+
+session_time <- c(
+  "9:00–10:30 am"
+)
+
+session_zoom <- c(
+  rep("", length(session_time))
+)
+
+section_header <- fun_section_header(session_title, settion_time, session_zoom)
+
+
+room <- c(
+  "Room 1 **[Zoom](https://zoom.us/)**",
+  "Room 2 **[Zoom](https://zoom.us/)**"
+)
+
+# moderator <- c(
+#   "Moderator: Yuki Shiraito (University of Michigan, Ann Arbor)",
+#   "Moderator: Ben Goldsmith (Australian National University)"
+# )
+
+moderator <- c(
+  "Moderator: Yuki Shiraito",
+  "Moderator: Ben Goldsmith"
+)
+
+authors <- c(
+  ## Room 1
+  "Seo-young Silvia Kim, Bernard L. Fraga, Bradley Spahn, Alan N. Yan.",
+  "Michio Umeda.",
+  "Matthew P. Robertson.",
+  "Lucie Lu",
+  ## Room 2
+  "Jiongyi Cao Kosuke Imai Michael Lingzhi Li.",
+  "Huaitian Lu, Xun Pang.",
+  "Hsu Yumin Wang.",
+  "Gechun Lin."
+)
+
+title <- c(
+  # Room 1
+  "When Do Voter Files Accurately Measure Turnout? How Transitory Voter File Snapshots Impact Research and Representation.",
+  "Aggregating qualitative district-level campaign assessments to forecast the 2021 LH general election results in Japan.",
+  "Bringing Big Data to Chinese Politics: Learning From the People's Daily Corpus.",
+  "We Hear You: How do State-run Media Pay Attention to Online Public Opinion?",
+  # Room 2
+  "Experimental Evaluation of Dynamic Individualized Treatment Rules.",
+  "A Causal-Predictive Machine Learning Method with Temporal Convolutional Networks for Panel Data.",
+  "A Latent Measure of Mass Threats in Nondemocracies.",
+  "When Counting Fails to Discover: Examining Short Text Similarity with A Meaning-Based Approach."
+)
+
+poster_link <- c(
+  # Room 1
+  "",
+  "",
+  "",
+  "",
+  # Room 2
+  "",
+  "",
+  "",
+  ""
+)
+
+event_name <- paste0(
+  authors, " _", title, "_"
+)
+
+events <- if_else(
+  poster_link != "",
+  paste0(event_name, " ", "([poster](", poster_link, "))"),
+  event_name
+)
+
+
+schedule_tab <- tibble::tibble(
+  order = rep(1:4, 2),
+  Time = rep(section_header, 8),
+  Room = c(rep("Room1", 4), rep("Room2", 4)),
+  Events = events
+)
+
+schedule_tab %>%
+  select(order, Room, Events) %>% 
+  tidyr::pivot_wider(id_cols = order, values_from = Events, names_from = Room) %>% 
+  mutate(
+    ` ` = rep("", 4)
+  ) %>%
+  select(-order) %>% 
+  relocate(` `) %>%
+  add_row(
+    ` ` = " ", 
+    Room1 = room[1],
+    Room2 = room[2],
+    .before = 1) %>%
+  add_row(
+    ` ` = " ", 
+    Room1 = moderator[1],
+    Room2 = moderator[2],
+    .after = 1) %>%
+  kable(col.names = NULL) %>% 
+  kable_styling(full_width = TRUE, font_size = 20) %>%
+  row_spec(
+    1:2, align = "center"
+  ) %>%
+  #
+  #
+  pack_rows(
+      index = schedule_tab$Time[1],
+      label_row_css = "border-bottom: 3.5px solid;",
+    ) %>% 
+  column_spec(2, width = "24em", background = "#fafafa") %>%
+  column_spec(3, width = "24em", background = "#ececec")
+```
+
+
+
+
+```{r echo=FALSE, include=TRUE}
+session_title <- c(
+  "Break",
+  "Session 6: Deep learning and Principal Strata Effect",
+  "Break",
+  "Session 7: Big Data and Causal Ordering",
+  "Break",
+  "Session 8: Analysis of Treaty Text and Preference",
+  "Concluding Remarks"
+)
+  
+session_time <- c(
+  "10:30-10:40 am",
+  "10:40-12:10 am",
+  "12:10 – 1:10 pm",
+  "1:10-2:40 pm",
+  "2:40 –2:50 pm",
+  "2:50 –4:20 pm",
+  "4:20 pm"
+)
+
+session_zoom <- c(
+  rep("https://zoom.us/", length(session_time))
+)
+
+section_header <- fun_section_header(session_title, settion_time, session_zoom)
+
+authors <- c(
+  "Tea Break", # 1
+  # Session 6
+ "Zhenhua Wang, Olanrewaju Akande, Jason Poulos, and Fan Li.",  # 2
+ "Cyrus Samii, Ye Wang, Junlong Aaron Zhou.",  # 3
+ "Discussant:  Kentaro Fukumoto (Gakushuin University)",  # 4
+ #
+ "Lunch break",  # 5
+ # Session 7
+ "Haohan Chen, Yiqiang Wang, Tony Zirui Yang.",  # 6
+ "David Carlson, Abdulhakim Özcan.",  # 7
+ "Discussant: Inbok Rhee (KDI School of Public Policy and Management)",  # 8
+ # 
+ "Tea break",  # 9
+ # Session 8
+ "Soo Yeon Kim, Thiyaghessan s/o Poongundranar.",  # 10
+ "ByeongHwa Choi and Yesola Kweon.",  # 11
+ "Discussant: Sung Eun Kim (Korea University)",  # 12
+ #
+ "Concluding Remarks"  # 13
+)
+
+title <- c(
+  "",  # 1
+  # Session 6
+ "Are deep learning models superior for missing data imputation in surveys? Evidence from an empirical comparison.",  # 2
+ "Generalizing Covariate-tightened Trimming Bounds for Principal Strata Effects Using Adaptive Kernels.",  # 3
+ "",  # 4
+ #
+ "",  # 5
+ # Session 7
+ "Emotional Propaganda: An Audio-As-Data Approach to Chinese State-Run Cable News.",  # 6
+ "Estimating Causal Orderings and Relationships with Causal Gaussian Processes.", # 7
+ "",  # 8
+ # 
+ "",  # 9
+ # Session 8
+ "The Language of Institutional Design: Text Similarity in Preferential Trade Agreements.",  # 10
+ "Age and Trade Policy Preferences in an Aging Society: Evidence from Japan.", # 11
+ "",  # 12
+ #
+ ""  # 13
+)
+
+
+event_name <- if_else(title != "",
+  paste0(authors, " _", title, "_"),
+  paste0(authors)
+)
+
+
+paper_link <- c(
+  "",  # 1
+  "",  # 2
+  "",  # 3
+  "",  # 4
+  "",  # 5
+  "",  # 6
+  "",  # 7
+  "",  # 8
+  "",  # 9
+  "",  # 10
+  "",  # 11
+  "",  # 12
+  ""  # 13
+)
+
+events <- if_else(
+  paper_link != "",
+  paste0(event_name, " ", "([paper](", paper_link, "))"),
+  event_name
+)
+
+schedule_tab <- tibble(
+  Time = c(
+      section_header[1],
+      rep(section_header[2], 3),
+      section_header[3],
+      rep(section_header[4], 3),
+      section_header[5],
+      rep(section_header[6], 3),
+      section_header[7]
+    ),
+  Time_fill = rep("", length(events)),
+  Time_start = c(
+    "", 
+    # Session 6
+    "10:40 am-", "11:10 am-", "11:40 am-",
+    "", 
+    # Session 7
+    "1:10 pm-", "1:40 pm-", "2:10 pm-",
+    "",
+    # Session 8
+    "2:50 pm-", "3:20 pm-", "3:50 pm-",
+    ""
+  ),
+  Events = events
+) 
+
+schedule_tab %>% 
+  select(Time_start, Events) %>% 
+  kable(col.names = NULL) %>% 
+    kable_styling(full_width = TRUE, font_size = 20) %>% 
+    column_spec(1, bold = FALSE) %>% 
+    column_spec(2, 
+                background = c(
+                  "#BCC5C5",
+                  rep("#E5E5E5", 3), 
+                  "#BCC5C5", 
+                  rep("#E5E5E5", 3),
+                  "#BCC5C5", 
+                  rep("#E5E5E5", 3),
+                  "#2c3e50"
+                  ),
+                color = c(
+                  "white", 
+                  rep("black", 3),
+                  "white", 
+                  rep("black", 3),
+                  "white", 
+                  rep("black", 3),
+                  "white"
+                  )) %>% 
+    pack_rows(
+      index = table(forcats::fct_inorder(schedule_tab$Time)),
+      label_row_css = "border-bottom: 3.5px solid;",
+    ) %>% 
+  column_spec(1, width = "7em") 
+```
+
