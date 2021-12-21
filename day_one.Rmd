@@ -19,3 +19,47 @@ title: "Program Day 1"
      * With some
      * Sub bullets
 </details>
+
+
+```{r include=FALSE}
+require(knitr)
+require(kableExtra)
+require(dplyr)
+```
+
+```{r echo=FALSE, include=TRUE}
+date_time <- c(
+  "9:00–10:30 am",
+  "10:30-10:40 am",
+  "10:40-12:10 am",
+  "12:10–1:00 pm",
+  "1:00 – 2:30 p.m"
+)
+
+events <- c(
+  "Welcome Address by SPM President Betsy Sinclair",
+  "Round Table: Past, Present, and Future of Political Methodology\n
+   Panelist: Kosuke Imai, Molly Roberts, Yiqing Xu, Betsy Sinclair",
+  "Break",
+  "Chad Hazlett and Yiqing Xu, Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data",
+  "Daniel J. Hopkins, Yphtach Lelkes, Samuel Wolken, Which News Goes Viral? Measuring Identity Threats and Engagement with News Media Posts on Twitter and Facebook",
+  "Discussant: Xun Pang (Tsinghua University)"
+)
+
+schedule_tab <- tibble(
+  Time = c(rep(date_time[1], 2), date_time[2], rep(date_time[3], 3)), 
+  Time_fill = rep("", length(events)),
+  Events = events
+) 
+
+schedule_tab %>% 
+  select(Time_fill, Events) %>% 
+  kable(col.names = NULL) %>% 
+    kable_styling(full_width = FALSE, font_size = 20) %>% 
+    column_spec(1, bold = T, border_right = TRUE) %>% 
+    pack_rows(index = table(forcats::fct_inorder(schedule_tab$Time)))
+
+
+
+```
+
