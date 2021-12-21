@@ -38,11 +38,11 @@ date_time <- c(
 
 events <- c(
   "Welcome Address by SPM President Betsy Sinclair",
-  "Round Table: Past, Present, and Future of Political Methodology\n
-   Panelist: Kosuke Imai, Molly Roberts, Yiqing Xu, Betsy Sinclair",
+  "Round Table: _Past, Present, and Future of Political Methodology._\n
+   **Panelist**: Kosuke Imai, Molly Roberts, Yiqing Xu, Betsy Sinclair",
   "Break",
-  "Chad Hazlett and Yiqing Xu, Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data",
-  "Daniel J. Hopkins, Yphtach Lelkes, Samuel Wolken, Which News Goes Viral? Measuring Identity Threats and Engagement with News Media Posts on Twitter and Facebook",
+  "Chad Hazlett and Yiqing Xu. _Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data._",
+  "Daniel J. Hopkins, Yphtach Lelkes, Samuel Wolken. _Which News Goes Viral? Measuring Identity Threats and Engagement with News Media Posts on Twitter and Facebook._",
   "Discussant: Xun Pang (Tsinghua University)"
 )
 
