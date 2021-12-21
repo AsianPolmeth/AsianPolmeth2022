@@ -2,24 +2,6 @@
 title: "Program Day 1"
 ---
 
-<details>
-<summary><font size="5">9:00 – 10:30 A.M. Session 1: Welcome Address</font></summary>
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
-
-<details><summary><font size="5">10:30-10:40 A.M. Tea Break</font></summary></details>
-
-<details>
-<summary><font size="5">10:40-12:10 A.M. Session 2: Causal Inference and Big Data</font></summary>
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
-
 
 ```{r include=FALSE}
 require(knitr)
