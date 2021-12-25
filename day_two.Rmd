@@ -203,7 +203,8 @@ title <- c(
 
 
 event_name <- if_else(title != "",
-  paste0(authors, " _", title, "_"),
+  paste0(authors, "\n 
+  _", title, "_"),
   paste0(authors)
 )
 

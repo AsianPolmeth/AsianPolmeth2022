@@ -15,9 +15,6 @@ navbar:
           href: https://sites.google.com/view/asian-polmeth-2021/home
         - text: "Pre 2020"
           href: https://polmeth.org/asia
-  right: 
-    - icon: fa-envelope fa-lg
-      href: mailto:<email@emai.com>
 output:
   html_document:
     theme: flatly
