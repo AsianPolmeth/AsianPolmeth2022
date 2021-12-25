@@ -44,7 +44,7 @@ authors <- c(
   "Matthew P. Robertson.",
   "Lucie Lu",
   ## Room 2
-  "Jiongyi Cao Kosuke Imai Michael Lingzhi Li.",
+  "Jiongyi Cao, Kosuke Imai, Michael Lingzhi Li.",
   "Huaitian Lu, Xun Pang.",
   "Hsu Yumin Wang.",
   "Gechun Lin."
@@ -143,11 +143,11 @@ session_title <- c(
   
 session_time <- c(
   "10:30-10:40 am",
-  "10:40-12:10 am",
-  "12:10 – 1:10 pm",
+  "10:40 am -12:10 pm",
+  "12:10–1:10 pm",
   "1:10-2:40 pm",
-  "2:40 –2:50 pm",
-  "2:50 –4:20 pm",
+  "2:40–2:50 pm",
+  "2:50–4:20 pm",
   "4:20 pm"
 )
 
