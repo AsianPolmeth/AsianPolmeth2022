@@ -42,7 +42,7 @@ section_header <- fun_section_header(session_title, settion_time, session_zoom)
 event_name <- c(
   "Welcome Address by SPM President Betsy Sinclair",  # 1
   "Round Table: _Past, Present, and Future of Political Methodology._\n
-   **Panelist**: Molly Roberts, Yiqing Xu, Betsy Sinclair",  # 2
+   **Panelist**: Kosuke Imai, Molly Roberts, Betsy Sinclair, Yiqing Xu",  # 2
   "Break",  # 3
   "Chad Hazlett and Yiqing Xu.\n
   _Trajectory Balancing: A kernel based weighting approach to causal inference with time-series cross-sectional data._",  # 4
