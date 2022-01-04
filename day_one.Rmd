@@ -56,11 +56,9 @@ event_name <- c(
   _Causal Inferences with Time-Series Cross-Sectional Data under Spatial Interference and Interdependence: A Model-based Approach._",  # 9
   "Discussant: Joon Seok Yang (Sungkyunkwan University)",  # 10
   "Break",  # 11
-  "Han Zhang and Haoran Liang.\n
-  _Joint Text-and-Image Clustering for Social Science Research._",  # 12
   "Fang-Yi Chiou and Max Goplerud.\n
-  _Measuring and Theorizing the Legislative Records of Members of the United States Congress, 1873-2010._",  # 13
-  "Discussant: Yunkyu Sohn (Seoul National University)" # 14
+  _Measuring and Theorizing the Legislative Records of Members of the United States Congress, 1873-2010._",  # 12
+  "Discussant: Yunkyu Sohn (Seoul National University)" # 13
 )
 
 paper_link <- c(
@@ -75,9 +73,8 @@ paper_link <- c(
   "https://drive.google.com/file/d/1zlwJsP9LqAgtrbbv_BCGGzvBja7qOZgK/view?usp=sharing",  # 9
   "",  # 10
   "",  # 11
-  "",  # 12
-  "https://drive.google.com/file/d/1QzdfRizXFyfa2F9EmSP_rvynXmBrrsUg/view?usp=sharing",  # 13
-  ""   # 14
+  "https://drive.google.com/file/d/1QzdfRizXFyfa2F9EmSP_rvynXmBrrsUg/view?usp=sharing",  # 12
+  ""   # 13
 )
 
 events <- if_else(
@@ -94,7 +91,7 @@ schedule_tab <- tibble(
     section_header[4],
     rep(section_header[5], 3), 
     section_header[6], 
-    rep(section_header[7],3)),
+    rep(section_header[7], 2)),
   Time_fill = rep("", length(events)),
   Time_start = c(
     "9:00 am-", "9:45 am-",
@@ -103,7 +100,7 @@ schedule_tab <- tibble(
     "",
     "1:00 pm-", "1:30 pm-", "2:00 pm-",
     "",
-    "2:45 pm-", "3:15 pm-", "3:45 pm-"
+    "2:45 pm-", "3:30 pm-"
   ),
   Events = events
 ) 
@@ -121,7 +118,7 @@ schedule_tab %>%
                   "#BCC5C5", 
                   rep("#E5E5E5", 3),
                   "#BCC5C5", 
-                  rep("#E5E5E5", 3)
+                  rep("#E5E5E5", 2)
                   ),
                 color = c(
                   rep("white", 2), 
@@ -130,7 +127,7 @@ schedule_tab %>%
                   "white", 
                   rep("black", 3),
                   "white", 
-                  rep("black", 3)
+                  rep("black", 2)
                   )) %>% 
     pack_rows(
       index = table(forcats::fct_inorder(schedule_tab$Time)),
