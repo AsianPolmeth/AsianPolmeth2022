@@ -211,16 +211,16 @@ event_name <- if_else(title != "",
 
 paper_link <- c(
   "",  # 1
-  "",  # 2
+  "https://drive.google.com/file/d/141Oa1XixVsYB52MuU08lNfhp7kjklPei/view?usp=sharing",  # 2
   "",  # 3
   "",  # 4
   "",  # 5
-  "",  # 6
-  "",  # 7
+  "https://drive.google.com/file/d/1r-sCqbL0luaXewQTUJWWnABVkQKJGRCK/view?usp=sharing",  # 6
+  "https://drive.google.com/file/d/1jNB1vVEHuazqvJhIqK_9S8p9sWIZO-M4/view?usp=sharing",  # 7
   "",  # 8
   "",  # 9
-  "",  # 10
-  "",  # 11
+  "https://drive.google.com/file/d/1jA_bJEyGhYDGYFzlEJJ9NG5Nf0Suri6g/view?usp=sharing",  # 10
+  "https://drive.google.com/file/d/1-R1GQmKT6wIEpUvDrL0ozaoWJ0nFxcZB/view?usp=sharing",  # 11
   "",  # 12
   ""  # 13
 )

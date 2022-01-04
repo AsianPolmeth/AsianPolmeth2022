@@ -72,11 +72,11 @@ paper_link <- c(
   "",  # 6
   "",  # 7
   "",  # 8
-  "",  # 9
+  "https://drive.google.com/file/d/1zlwJsP9LqAgtrbbv_BCGGzvBja7qOZgK/view?usp=sharing",  # 9
   "",  # 10
   "",  # 11
   "",  # 12
-  "",  # 13
+  "https://drive.google.com/file/d/1QzdfRizXFyfa2F9EmSP_rvynXmBrrsUg/view?usp=sharing",  # 13
   ""   # 14
 )
 
