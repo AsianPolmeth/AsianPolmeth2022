@@ -16,15 +16,15 @@ session_time <- c(
 )
 
 session_zoom <- c(
-  rep("", length(session_time))
+  rep("https://snu-ac-kr.zoom.us/j/89206830215", length(session_time))
 )
 
 section_header <- fun_section_header(session_title, settion_time, session_zoom)
 
 
 room <- c(
-  "Room 1 **[Zoom](https://zoom.us/)**",
-  "Room 2 **[Zoom](https://zoom.us/)**"
+  "Breakout Room 1",
+  "Breakout Room 2"
 )
 
 # moderator <- c(
