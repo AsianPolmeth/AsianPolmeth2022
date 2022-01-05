@@ -232,7 +232,7 @@ event_name <- if_else(title != "",
 paper_link <- c(
   "",  # 1
   "https://drive.google.com/file/d/141Oa1XixVsYB52MuU08lNfhp7kjklPei/view?usp=sharing",  # 2
-  "",  # 3
+  "https://drive.google.com/file/d/1BpGSs3p1l4onVObwPBakajmfm_qf1p-v/view?usp=sharing",  # 3
   "",  # 4
   "",  # 5
   "https://drive.google.com/file/d/1r-sCqbL0luaXewQTUJWWnABVkQKJGRCK/view?usp=sharing",  # 6
